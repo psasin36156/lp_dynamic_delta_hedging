@@ -60,7 +60,7 @@ def get_crypto_ohlc(symbol='BTCUSDT', interval='4h', lookback='2y'):
     
     return df
 
-df = get_crypto_ohlc('ETHUSDT', '4h', '2y')
+df = get_crypto_ohlc('PENGUUSDT', '4h', '2y')
 df['delta%'] = (df['close'].shift(-1) - df['close']) / df['close'] * 100
 
 # Calculate 80th percentile
@@ -72,7 +72,7 @@ plt.figure(figsize=(10, 6))
 plt.hist(df['delta%'].dropna(), bins=500, edgecolor='black')
 plt.axvline(x=percentile_95, color='r', linestyle='--', label=f'95th percentile: {percentile_95:.2f}%')
 plt.axvline(x=percentile_5, color='g', linestyle='--', label=f'5th percentile: {percentile_5:.2f}%')
-plt.title('Distribution of ETH Price Changes (%)')
+plt.title('Distribution of PENGU Price Changes (%)')
 plt.xlabel('Price Change (%)')
 plt.ylabel('Frequency')
 plt.grid(True, alpha=0.3)
